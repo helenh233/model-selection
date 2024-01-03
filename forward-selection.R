@@ -1,7 +1,3 @@
-library(readr)
-crime <- read_csv("School/Math/STAT 331/crime_A3.csv",
-                  col_types = cols(Southern = col_factor(levels = c("0", "1"))))
-
 forwardSelection <-
   function(criteria, sample, response, predictorList) {
     # Fit the intercept-only model to initialize criterion values
@@ -60,58 +56,3 @@ forwardSelection <-
       predictorList <- setdiff(predictorList, bestPredictor)
     }
   }
-
-forwardSelection(
-  criteria = "adj R squared",
-  sample = crime,
-  response = "CrimeRate",
-  predictorList = c(
-    "Age",
-    "Southern",
-    "Education",
-    "Ex0",
-    "LF",
-    "Males",
-    "Pop",
-    "NW",
-    "UE1",
-    "UE2",
-    "IncIneq"
-  )
-)
-forwardSelection(
-  criteria = "AIC",
-  sample = crime,
-  response = "CrimeRate",
-  predictorList = c(
-    "Age",
-    "Southern",
-    "Education",
-    "Ex0",
-    "LF",
-    "Males",
-    "Pop",
-    "NW",
-    "UE1",
-    "UE2",
-    "IncIneq"
-  )
-)
-forwardSelection(
-  criteria = "BIC",
-  sample = crime,
-  response = "CrimeRate",
-  predictorList = c(
-    "Age",
-    "Southern",
-    "Education",
-    "Ex0",
-    "LF",
-    "Males",
-    "Pop",
-    "NW",
-    "UE1",
-    "UE2",
-    "IncIneq"
-  )
-)
